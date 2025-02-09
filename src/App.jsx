@@ -4,6 +4,7 @@ function App() {
   const [task, setTask] = useState('')
   const [tasks, setTasks] = useState([])
 
+  
   /**
    * Updates the task state with the current value types in the input field.
    * 
@@ -30,6 +31,16 @@ function App() {
     }
   }
 
+  /**
+   * Deletes a task from the list by filtering the task that mathces the given index.
+   * 
+   * @param {number} index - Index of the task to delete.
+   * @returns {void} This function does not return anything.
+   */
+  const handleDeleteTask = (index) => {
+    setTasks((prevTasks) => prevTasks.filter((_, i) => i !== index))
+  }
+
   return (
     <>
       <h1>Make Today Count!</h1>
@@ -48,7 +59,10 @@ function App() {
       <div>
         <ul>
           {tasks.map((task, index) => (
-            <li key={index}>{task}</li>
+            <li key={index}>
+              {task}
+              <button onClick={() => handleDeleteTask(index)}>Delete</button>
+            </li>
           ))}
         </ul>
       </div>
