@@ -9,7 +9,7 @@ app.use(cors());
 
 const PORT = 5001;
 
-// Route to get all tasks
+// This route fetches all tasks from the database and returns them as a response.
 app.get('/tasks', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM tasks');  // Query the database for tasks
@@ -19,7 +19,7 @@ app.get('/tasks', async (req, res) => {
     }
 });
 
-// POST a new task
+// This route allows a new task to be added to the database. The task description is passed in the request body.
 app.post('/tasks', async (req, res) => {
     const { description } = req.body;
     try {
@@ -29,11 +29,12 @@ app.post('/tasks', async (req, res) => {
       );
       res.status(201).json(result.rows[0]);  // Respond with the newly created task
     } catch (err) {
-      console.error('Error adding task:', err);  // Log the error
+      console.error('Error adding task:', err);  
       res.status(500).json({ error: err.message });
     }
   })
 
+// This route allows a task to be deleted based on its ID. The ID is passed in the url parameters.
 app.delete('/tasks/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -44,15 +45,7 @@ app.delete('/tasks/:id', async (req, res) => {
     }
   });
 
-app.get('/db-test', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT NOW()');  // Get current timestamp
-        res.json({ message: 'Connected to DB', time: result.rows[0] });
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
-
+// Srarts the server
 app.listen(PORT, () => {
     try {
       console.log(`Server running on http://localhost:${PORT}`);
