@@ -75,27 +75,28 @@ function App() {
 
   return (
     <>
+    <div className='container'>
       <h1>Make Today Count!</h1>
-      <input
-        type='text'
-        placeholder='What will you achieve?'
-        value={task}
-        onChange={handleInput}
-      />
-      <div className="add-button">
+      <div className='input-container'>
+        <input
+          type='text'
+          placeholder='What will you achieve?'
+          value={task}
+          onChange={handleInput}
+        />
         <button onClick={handleAddTask}>Add</button>
       </div>
-
       <div>
         <ul>
           {tasks.map((task, index) => (
             <li key={task.id}>
-              {task.description}
+              <div className='task-description'>{task.description}</div>
               <button onClick={() => handleDeleteTask(task.id)}>Delete</button>
             </li>
           ))}
         </ul>
       </div>
+    </div>
     </>
   )
 }
