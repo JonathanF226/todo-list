@@ -10,7 +10,7 @@ A simple to-do list application built with React and Express
 - React (Frontend)
 - Express.js (Backend)
 - PostgreSQL (Database)
-- Node.js
+- Node.js (Backend)
 
 ## Usage 
 - Enter a task in the input field and click "Add" to save it
