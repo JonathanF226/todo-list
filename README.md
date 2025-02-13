@@ -1,4 +1,4 @@
-# To-DO List 
+# To-Do List 
 A simple to-do list application built with React and Express
 
 ## Features
@@ -17,3 +17,6 @@ A simple to-do list application built with React and Express
 - Click "Delete" to remove a task 
 - Tasks persist even after refreshing the page.
  
+
+https://github.com/user-attachments/assets/8ea0f5c4-cc0c-40ca-9ac0-0fc913da7749
+
